@@ -66,7 +66,7 @@ unit: verify build unit-no-verify
 
 unit-with-race-cover: verify build
 	@echo "go test SDK and vendor packages"
-	go test ${TEST_TIMEOUT} -v -count=1 -tags ${UNIT_TEST_TAGS} -race -cpu=1,2,4 ${SDK_ALL_PKGS}
+	go test ${TEST_TIMEOUT} -v -count=1 -tags ${UNIT_TEST_TAGS} -race -cpu=1,2,4 ${SDK_ALL_PKGS} -coverprofile=coverage.txt -covermode=atomic
 
 unit-old-go-race-cover:
 	@echo "go test SDK only packages for old Go versions"
